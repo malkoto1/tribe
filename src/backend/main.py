@@ -1,14 +1,21 @@
-from flask import Flask, app, request, session, flash
-
-
-# export FLASK_APP=main.py
-# python3 -m flask run
-
+from flask import Flask
+from flask_restful import Resource, Api
 
 app = Flask(__name__)
-app.config.from_object(__name__)
+api = Api(app)
 
 
-@app.route('/hello', methods=['GET'])
-def login():
-    return 'Zhan, you are awesome!!!'
+class HelloWorld(Resource):
+    def get(self):
+        return {'hello': 'world'}
+
+class GetItems(Resource):
+    def get(self):
+        return {"Joro": "Kade mi e bazata?"}
+    def post(self):
+        return "", 200
+
+api.add_resource(HelloWorld, '/')
+
+if __name__ == '__main__':
+    app.run(debug=True)
