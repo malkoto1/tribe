@@ -1,9 +1,10 @@
-from flask import Flask, request
+from flask import Flask, request, make_response
 from flask_restful import Resource, Api
 import json
 
 app = Flask(__name__)
 api = Api(app)
+app.config['RESTFUL_JSON'] = {'ensure_ascii': False}
 
 
 def get_json_as_dict(file):
@@ -19,8 +20,7 @@ def write_dict_to_file(file, dictionary):
 class Items(Resource):
     def get(self, field=None, search_str=None):
         if field is None:
-            kor = get_json_as_dict("../../resources/items.json")
-            return str(kor).encode()
+            return get_json_as_dict("../../resources/items.json")
         return 'Return product based on match of {} field and {} search string'.format(field, search_str)
 
     def put(self):
@@ -40,7 +40,7 @@ class Items(Resource):
 
 class Orders(Resource):
     def get(self):
-        return 'all orders'
+            return get_json_as_dict("../../resources/orders.json")
 
     def get(self, criteria1=None, criteria2=None):
         return 'all orders between {} and {}'.format(criteria1, criteria2)
