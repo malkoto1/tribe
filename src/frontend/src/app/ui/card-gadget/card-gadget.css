@@ -1,0 +1,24 @@
+.card {
+    background-color: #FFFFFF;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.card .icon {
+    font-size: 2em;
+    display: inline-block;
+    padding: 20px 14px;
+    width: 24%;
+    color: #FFFFFF;
+}
+
+.card .icon .glyphicon {
+    vertical-align: middle;
+}
+
+.card .info {
+    display: inline-block;
+    vertical-align: middle;
+    font-weight: bold;
+    width: 74.3%;
+    text-align: center;
+}

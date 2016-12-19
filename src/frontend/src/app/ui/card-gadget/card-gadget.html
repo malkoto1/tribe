@@ -1,0 +1,13 @@
+<div class="card">
+    <div class="icon" [ngStyle]="{ 'background-color': color }">
+        <span class="glyphicon" [ngClass]="icon" aria-hidden="true"></span>
+    </div>
+    <div class="info">
+        <div class="title" [ngStyle]="{ 'color': color }">
+            {{ title | uppercase}}
+        </div>
+        <div class="data">
+            {{ data | uppercase }}
+        </div>
+    </div>
+</div>
